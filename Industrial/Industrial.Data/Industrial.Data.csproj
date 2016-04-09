@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0515B2CE-ECA0-4C6C-9F78-20889D92F7C1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Industrial.Data</RootNamespace>
+    <AssemblyName>Industrial.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Domain\Bank.cs" />
+    <Compile Include="Domain\BaseClass.cs" />
+    <Compile Include="Domain\Branch.cs" />
+    <Compile Include="Domain\ItemBOM.cs" />
+    <Compile Include="Domain\ItemProduct.cs" />
+    <Compile Include="Domain\MainDataContext.cs" />
+    <Compile Include="Domain\Role.cs" />
+    <Compile Include="Domain\Supplier.cs" />
+    <Compile Include="Domain\UnitOfMeasure.cs" />
+    <Compile Include="Domain\User.cs" />
+    <Compile Include="Migrations\201603110427589_Initial.cs" />
+    <Compile Include="Migrations\201603110427589_Initial.Designer.cs">
+      <DependentUpon>201603110427589_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603110609207_AddBaseClass.cs" />
+    <Compile Include="Migrations\201603110609207_AddBaseClass.Designer.cs">
+      <DependentUpon>201603110609207_AddBaseClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603150209125_Update Model.cs" />
+    <Compile Include="Migrations\201603150209125_Update Model.Designer.cs">
+      <DependentUpon>201603150209125_Update Model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603281333107_Updatetablebank.cs" />
+    <Compile Include="Migrations\201603281333107_Updatetablebank.Designer.cs">
+      <DependentUpon>201603281333107_Updatetablebank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603290550119_add UOM.cs" />
+    <Compile Include="Migrations\201603290550119_add UOM.Designer.cs">
+      <DependentUpon>201603290550119_add UOM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603290615524_edit UOM.cs" />
+    <Compile Include="Migrations\201603290615524_edit UOM.Designer.cs">
+      <DependentUpon>201603290615524_edit UOM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603290845536_EditBranch.cs" />
+    <Compile Include="Migrations\201603290845536_EditBranch.Designer.cs">
+      <DependentUpon>201603290845536_EditBranch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603290848444_EditBranchAddRelationship.cs" />
+    <Compile Include="Migrations\201603290848444_EditBranchAddRelationship.Designer.cs">
+      <DependentUpon>201603290848444_EditBranchAddRelationship.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604050919578_add user table.cs" />
+    <Compile Include="Migrations\201604050919578_add user table.Designer.cs">
+      <DependentUpon>201604050919578_add user table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604051307584_change name user roles table.cs" />
+    <Compile Include="Migrations\201604051307584_change name user roles table.Designer.cs">
+      <DependentUpon>201604051307584_change name user roles table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604051434466_edit user table.cs" />
+    <Compile Include="Migrations\201604051434466_edit user table.Designer.cs">
+      <DependentUpon>201604051434466_edit user table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\BaseRepository.cs" />
+    <Compile Include="Repositories\DataContextFactory.cs" />
+    <Compile Include="Repositories\EFUnitOfWork.cs" />
+    <Compile Include="Repositories\EFUnitOfWorkFactory.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201603110427589_Initial.resx">
+      <DependentUpon>201603110427589_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603110609207_AddBaseClass.resx">
+      <DependentUpon>201603110609207_AddBaseClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603150209125_Update Model.resx">
+      <DependentUpon>201603150209125_Update Model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603281333107_Updatetablebank.resx">
+      <DependentUpon>201603281333107_Updatetablebank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603290550119_add UOM.resx">
+      <DependentUpon>201603290550119_add UOM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603290615524_edit UOM.resx">
+      <DependentUpon>201603290615524_edit UOM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603290845536_EditBranch.resx">
+      <DependentUpon>201603290845536_EditBranch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603290848444_EditBranchAddRelationship.resx">
+      <DependentUpon>201603290848444_EditBranchAddRelationship.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604050919578_add user table.resx">
+      <DependentUpon>201604050919578_add user table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604051307584_change name user roles table.resx">
+      <DependentUpon>201604051307584_change name user roles table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604051434466_edit user table.resx">
+      <DependentUpon>201604051434466_edit user table.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Core.csproj">
+      <Project>{B34B95D5-15C7-4047-9043-0FFE5D8EC728}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

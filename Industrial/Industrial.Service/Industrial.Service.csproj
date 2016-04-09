@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1246DF06-8FED-4D74-810F-0B77BE93CACA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Industrial.Service</RootNamespace>
+    <AssemblyName>Industrial.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Mappers\Master\BankMapper.cs" />
+    <Compile Include="Mappers\Master\BranchMapper.cs" />
+    <Compile Include="Mappers\Master\ItemProductMapper.cs" />
+    <Compile Include="Mappers\Master\RoleMapper.cs" />
+    <Compile Include="Mappers\Master\SupplierMapper.cs" />
+    <Compile Include="Mappers\Master\UnitOfMeasureMapper.cs" />
+    <Compile Include="Mappers\Master\UserMapper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BankService.cs" />
+    <Compile Include="Services\BranchService.cs" />
+    <Compile Include="Services\IBankService.cs" />
+    <Compile Include="Services\IBaseService.cs" />
+    <Compile Include="Services\IBranchService.cs" />
+    <Compile Include="Services\IItemProductService.cs" />
+    <Compile Include="Services\IRoleService.cs" />
+    <Compile Include="Services\ISupplierService.cs" />
+    <Compile Include="Services\ItemProductService.cs" />
+    <Compile Include="Services\IUnitOfMeasureService.cs" />
+    <Compile Include="Services\SupplierService.cs" />
+    <Compile Include="Services\UnitOfMeasureService.cs" />
+    <Compile Include="ViewModel\Master\BankModel.cs" />
+    <Compile Include="ViewModel\Master\BranchModel.cs" />
+    <Compile Include="ViewModel\Master\ItemProductModel.cs" />
+    <Compile Include="ViewModel\Master\IViewModelBase.cs" />
+    <Compile Include="ViewModel\Master\LoginModel.cs" />
+    <Compile Include="ViewModel\Master\RoleModel.cs" />
+    <Compile Include="ViewModel\Master\SupplierModel.cs" />
+    <Compile Include="ViewModel\Master\UnitOfMeasureModel.cs" />
+    <Compile Include="ViewModel\Master\UserModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Core.csproj">
+      <Project>{B34B95D5-15C7-4047-9043-0FFE5D8EC728}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Industrial.Data\Industrial.Data.csproj">
+      <Project>{0515B2CE-ECA0-4C6C-9F78-20889D92F7C1}</Project>
+      <Name>Industrial.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Industrial.Infrastructure\Industrial.Infrastructure.csproj">
+      <Project>{A963F646-76B4-40EC-8E4F-E8EACC256FA8}</Project>
+      <Name>Industrial.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Industrial.Model\Industrial.Model.csproj">
+      <Project>{D1CFC8C5-565C-42F3-A96E-7A503CC9BB5C}</Project>
+      <Name>Industrial.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Industrial.Repository\Industrial.Repository.csproj">
+      <Project>{1C6F5596-F1A0-4A70-8666-20C26137E141}</Project>
+      <Name>Industrial.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A963F646-76B4-40EC-8E4F-E8EACC256FA8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Industrial.Infrastructure</RootNamespace>
+    <AssemblyName>Industrial.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Apex">
+      <HintPath>..\..\Lib\Apex.dll</HintPath>
+    </Reference>
+    <Reference Include="De.TorstenMandelkow.MetroChart">
+      <HintPath>..\..\Lib\De.TorstenMandelkow.MetroChart.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro">
+      <HintPath>..\..\Lib\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseClasses\BindableBase.cs" />
+    <Compile Include="BaseClasses\FlyoutViewModelBase.cs" />
+    <Compile Include="BaseClasses\IFlyoutContainer.cs" />
+    <Compile Include="BaseClasses\ModelBase.cs" />
+    <Compile Include="BaseClasses\ValidatableBindableBase.cs" />
+    <Compile Include="BaseClasses\ViewModelBase.cs" />
+    <Compile Include="BaseClasses\WorkspaceViewModelBase.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="CoreClasses\ExtendedObservableCollection.cs" />
+    <Compile Include="CoreClasses\Extensions.cs" />
+    <Compile Include="CoreClasses\RelayCommand.cs" />
+    <Compile Include="MessagingService\Emumerations.cs" />
+    <Compile Include="MessagingService\IMessagingService.cs" />
+    <Compile Include="MessagingService\MessageServiceFactory.cs" />
+    <Compile Include="MessagingService\MessagingService.cs" />
+    <Compile Include="MessagingService\ModalCustomMessageDialog.xaml.cs">
+      <DependentUpon>ModalCustomMessageDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MessagingService\ModalDialogViewModelBase.cs" />
+    <Compile Include="MessagingService\ModalMessageDialog.xaml.cs">
+      <DependentUpon>ModalMessageDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MessagingService\ModalViewRegistry.cs" />
+    <Compile Include="Navigation\INavigator.cs" />
+    <Compile Include="Navigation\Navigator.cs" />
+    <Compile Include="Navigation\NavigatorFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RijndaelManagedEncryption.cs" />
+    <Compile Include="Utility\AppConstants.cs" />
+    <Compile Include="Utility\AppearanceManager.cs" />
+    <Compile Include="Utility\LogUtil.cs" />
+    <Compile Include="Utility\TreeHelper.cs" />
+    <Compile Include="Utility\Util.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MessagingService\ModalCustomMessageDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MessagingService\ModalMessageDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ChartDark.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ChartLight.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ChartPaletteResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\MessagingStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
