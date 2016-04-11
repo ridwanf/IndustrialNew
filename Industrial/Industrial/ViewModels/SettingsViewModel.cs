@@ -12,7 +12,7 @@ using System.Windows.Input;
 using Industrial.Infrastructure.BaseClasses;
 using Industrial.Infrastructure.CoreClasses;
 using Industrial.Infrastructure.MessagingService;
-using Industrial.Models.Interfaces;
+using Industrial.Repository.Repositories;
 using Industrial.Shared;
 using Industrial.Infrastructure.Utility;
 
@@ -227,7 +227,7 @@ namespace Industrial.ViewModels
                 {
                     AppData.LoggedInUser.SelectedAccent = SelectedAccent;
                     AppData.LoggedInUser.SelectedTheme = SelectedTheme;
-                    _userRepository.SaveUser(AppData.LoggedInUser);
+                    _userRepository.Add(AppData.LoggedInUser);
                 }
                 catch (Exception ex)
                 {
@@ -253,7 +253,7 @@ namespace Industrial.ViewModels
                         return;
                     }
                     AppData.LoggedInUser.Password = NewPassword;
-                    _userRepository.SaveUser(AppData.LoggedInUser);
+                    _userRepository.Add(AppData.LoggedInUser);
                     _messagingService.ShowMessage(InfoMessages.INF_PASSWORD_CHANGED_MSG);
                     //Clear the passwords
                     OldPassword = NewPassword = ReenterNewPassword = null;

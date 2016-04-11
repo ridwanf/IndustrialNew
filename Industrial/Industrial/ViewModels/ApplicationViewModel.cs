@@ -80,11 +80,11 @@ namespace Industrial.ViewModels
         /// <param name="transactionRepository">An instance of <see cref="ITransactionRepository"/> implementation.</param>
         /// <param name="userRepository"> >An instance of <see cref="IUserRepository"/> implementation.</param>
         /// <param name="messagingService">An implementation of <see cref="IMessagingService"/> </param>
-        public ApplicationViewModel(UserViewModel user,Models.Interfaces.ITransactionRepository transactionRepository, Models.Interfaces.IUserRepository userRepository, IMessagingService messagingService)
+        public ApplicationViewModel(UserViewModel user,ITransactionRepository transactionRepository, IUserRepository userRepository, IMessagingService messagingService)
             : base("ApplicationViewModel")
         {
             LoggedInUser = user;
-            bool isUserAdmin = user.Role == UserRole.Admin;
+            bool isUserAdmin = true;//user.Role == UserRole.Admin;
             //Configure the navigator
             Navigator = NavigatorFactory.GetNavigator();
             var viewList = new List<WorkspaceViewModelBase>()

@@ -7,12 +7,15 @@
 ****************************************************************************************************/
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
+using Industrial.Data.Domain;
 using Industrial.Infrastructure.BaseClasses;
 using Industrial.Infrastructure.CoreClasses;
 using Industrial.Infrastructure.MessagingService;
-using Industrial.Models.DataModels;
+
+
 using Industrial.Shared;
 
 namespace Industrial.ViewModels
@@ -27,15 +30,15 @@ namespace Industrial.ViewModels
         /// <summary>
         /// Gets or sets the user name
         /// </summary>
-        public string Username
+        public string UserName
         {
-            get { return Entity.Username; }
+            get { return Entity.UserName; }
             set
             {
-                if (value == Entity.Username)
+                if (value == Entity.UserName)
                     return;
-                Entity.Username = value;
-                OnPropertyChanged(GetPropertyName(() => Username));
+                Entity.UserName = value;
+                OnPropertyChanged(GetPropertyName(() => UserName));
             }
         }
 
@@ -72,15 +75,15 @@ namespace Industrial.ViewModels
         /// <summary>
         /// Gets or sets the role of the user.
         /// </summary>
-        public UserRole Role
+        public IEnumerable<Role> Roles
         {
-            get { return Entity.Role; }
+            get { return Entity.Roles; }
             set
             {
-                if (value == Entity.Role)
+                if (value == Entity.Roles)
                     return;
-                Entity.Role = value;
-                OnPropertyChanged(GetPropertyName(() => Role));
+                Entity.Roles = value.ToList();
+                OnPropertyChanged(GetPropertyName(() => Roles));
             }
         }
 
@@ -141,18 +144,18 @@ namespace Industrial.ViewModels
         }
 
         /// <summary>
-        /// Gets if the username of a user can be edited.
+        /// Gets if the UserName of a user can be edited.
         /// </summary>
-        public bool IsUsernameEditable
+        public bool IsUserNameEditable
         {
-            get { return Entity.UserId < 1; }
-            //get { return _isUsernameEditable; }
+            get { return Entity.Id != null; }
+            //get { return _isUserNameEditable; }
             //set
             //{
-            //    if (value == _isUsernameEditable)
+            //    if (value == _isUserNameEditable)
             //        return;
-            //    _isUsernameEditable = value;
-            //    OnPropertyChanged(GetPropertyName(() => IsUsernameEditable));
+            //    _isUserNameEditable = value;
+            //    OnPropertyChanged(GetPropertyName(() => IsUserNameEditable));
             //}
         }
 
@@ -174,7 +177,7 @@ namespace Industrial.ViewModels
         /// </summary>
         public void Refresh()
         {
-            OnPropertyChanged(GetPropertyName(() => IsUsernameEditable));
+            OnPropertyChanged(GetPropertyName(() => IsUserNameEditable));
         }
 
         #endregion
@@ -194,7 +197,7 @@ namespace Industrial.ViewModels
                 throw new ArgumentNullException("messagingService");
             _messagingService = messagingService;
             Entity = user;
-            //IsUsernameEditable=Entity.UserId <1;
+            //IsUserNameEditable=Entity.UserId <1;
             //Initialize commands
             ChangeImageCommand = new RelayCommand(ChangeImage);
         }
@@ -208,11 +211,11 @@ namespace Industrial.ViewModels
         /// </summary>
         /// <param name="propertyName"></param>
         /// <returns></returns>
-        protected override string GetErrorForProperty(string propertyName)
-        {
-            CommandManager.InvalidateRequerySuggested();
-            return Entity[propertyName];
-        }
+        //protected override string GetErrorForProperty(string propertyName)
+        //{
+        //    CommandManager.InvalidateRequerySuggested();
+        //    return Entity[propertyName];
+        //}
 
         #endregion
 
@@ -237,7 +240,7 @@ namespace Industrial.ViewModels
 
         #region Member Variables
 
-        private static readonly string[] _propertyNames = { "Name", "Username" };
+        private static readonly string[] _propertyNames = { "Name", "UserName" };
         private readonly IMessagingService _messagingService;
 
         #endregion

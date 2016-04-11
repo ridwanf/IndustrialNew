@@ -13,7 +13,7 @@ using Industrial.Infrastructure.BaseClasses;
 using Industrial.Infrastructure.CoreClasses;
 using Industrial.Infrastructure.MessagingService;
 using Industrial.Infrastructure.Utility;
-using Industrial.Models.Interfaces;
+
 using Industrial.Repository.Repositories;
 using Industrial.Shared;
 
@@ -76,15 +76,15 @@ namespace Industrial.ViewModels
         /// <summary>
         /// Gets or sets the user id to filter the transactions with.
         /// </summary>
-        public string Username
+        public string UserName
         {
-            get { return _username; }
+            get { return _UserName; }
             set
             {
-                if (_username == value)
+                if (_UserName == value)
                     return;
-                _username = value;
-                OnPropertyChanged(GetPropertyName(() => Username));
+                _UserName = value;
+                OnPropertyChanged(GetPropertyName(() => UserName));
             }
         }
 
@@ -235,8 +235,9 @@ namespace Industrial.ViewModels
                     if (FromDate.Date > ToDate.Date)
                         error = ErrorMessages.ERR_FROM_TO_DATE;
                     break;
-                case "Username":
-                    if (AppData.LoggedInUser != null && AppData.LoggedInUser.Role != UserRole.Admin && !string.IsNullOrEmpty(Username))
+                case "UserName":
+                    //if (AppData.LoggedInUser != null && AppData.LoggedInUser.Roles.Contains(UserRole.Admin) && !string.IsNullOrEmpty(UserName))
+                        if (AppData.LoggedInUser != null && !string.IsNullOrEmpty(UserName))
                         error = ErrorMessages.ERR_CANT_SELECT_USER;
                     break;
 
@@ -251,13 +252,13 @@ namespace Industrial.ViewModels
         {
             try
             {
-                var userList = _userRepository.GetAllUsers();
+                var userList = _userRepository.FindAll();
                 AllUsers.Add(string.Empty);//For any user
                 if (null != userList && userList.Any())
                 {
-                    var userNameList = userList.Select(u => u.Username);
-                    AllUsers.AddRange(userNameList);
-                    Username = string.Empty;//set the selected user to all.
+                    var UserNameList = userList.Select(u => u.UserName);
+                    AllUsers.AddRange(UserNameList);
+                    UserName = string.Empty;//set the selected user to all.
                 }
             }
             catch (Exception ex)
@@ -320,7 +321,7 @@ namespace Industrial.ViewModels
         private DateTime _toDate;
         private string _fromAmount;
         private string _toAmount;
-        private string _username;
+        private string _UserName;
         private bool _isUserAdmin;
         private readonly IUserRepository _userRepository;
         private readonly IMessagingService _messagingService;
@@ -332,7 +333,7 @@ namespace Industrial.ViewModels
                                                       "ToDate",
                                                       "FromAmount",
                                                       "ToAmount",
-                                                      "Username"
+                                                      "UserName"
                                                   };
     }
 }

@@ -41,7 +41,7 @@ The author takes no liabilities for any damage caused because of this code. Use 
                         </Style>
                     </Path.Style>
                 </Path>
-                <TextBlock FontWeight="Bold" Text="{Binding Username}"/>
+                <TextBlock FontWeight="Bold" Text="{Binding UserName}"/>
             </DockPanel>
             <TextBlock x:Name="txtName" Text="{Binding Name}" />
         </StackPanel>

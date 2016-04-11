@@ -57,7 +57,7 @@ The author takes no liabilities for any damage caused because of this code. Use 
             <TextBlock Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" Margin="10,15,5,5" Text="{x:Static Shared:UIText.FILTER_BY_USER_LABEL_TEXT}"/>
             <TextBlock Grid.Row="5" Grid.Column="0" Text="{x:Static Shared:UIText.USER_LABEL_TEXT}"/>
             <ComboBox x:Name="cmbUsers" Grid.Row="5" Grid.Column="1" Margin="2" Validation.ErrorTemplate="{x:Null}" IsEnabled="{Binding IsUserAdmin}"
-                      SelectedValue="{Binding Username,ValidatesOnDataErrors=True}" ItemsSource="{Binding AllUsers}"/>
+                      SelectedValue="{Binding UserName,ValidatesOnDataErrors=True}" ItemsSource="{Binding AllUsers}"/>
             <ContentPresenter Grid.Row="6" Grid.Column="1" Content="{Binding ElementName=cmbUsers,Path=(Validation.Errors).CurrentItem}"/>
 
             <TextBlock Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="4" Margin="10,15,5,5" Text="{x:Static Shared:UIText.AMOUNT_RANGE_LABEL_TEXT}"/>

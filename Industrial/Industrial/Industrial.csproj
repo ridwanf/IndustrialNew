@@ -269,10 +269,6 @@
       <Project>{a963f646-76b4-40ec-8e4f-e8eacc256fa8}</Project>
       <Name>Industrial.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Industrial.Model\Industrial.Model.csproj">
-      <Project>{D1CFC8C5-565C-42F3-A96E-7A503CC9BB5C}</Project>
-      <Name>Industrial.Model</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Industrial.Repository\Industrial.Repository.csproj">
       <Project>{1C6F5596-F1A0-4A70-8666-20C26137E141}</Project>
       <Name>Industrial.Repository</Name>

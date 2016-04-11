@@ -31,7 +31,7 @@ namespace Industrial.Converters
             var user = value as UserViewModel;
             if (user == null)
                 return string.Empty;
-            return user.Username ?? string.Empty;
+            return user.UserName ?? string.Empty;
         }
 
         /// <summary>

@@ -55,8 +55,12 @@
     <Compile Include="Domain\MainDataContext.cs" />
     <Compile Include="Domain\Role.cs" />
     <Compile Include="Domain\Supplier.cs" />
+    <Compile Include="Domain\Transaction.cs" />
+    <Compile Include="Domain\TransactionFilter.cs" />
     <Compile Include="Domain\UnitOfMeasure.cs" />
     <Compile Include="Domain\User.cs" />
+    <Compile Include="EventArgsAndException\RepositoryTaskFinishedEventArgs.cs" />
+    <Compile Include="EventArgsAndException\UserLoggedInEventArgs.cs" />
     <Compile Include="Migrations\201603110427589_Initial.cs" />
     <Compile Include="Migrations\201603110427589_Initial.Designer.cs">
       <DependentUpon>201603110427589_Initial.cs</DependentUpon>
@@ -148,10 +152,21 @@
       <Project>{B34B95D5-15C7-4047-9043-0FFE5D8EC728}</Project>
       <Name>Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Industrial.Infrastructure\Industrial.Infrastructure.csproj">
+      <Project>{A963F646-76B4-40EC-8E4F-E8EACC256FA8}</Project>
+      <Name>Industrial.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Industrial.Shared\Industrial.Shared.csproj">
+      <Project>{2C752B91-ECA4-4E98-B5F9-63B1690EBE4F}</Project>
+      <Name>Industrial.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DefaultImplementation\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

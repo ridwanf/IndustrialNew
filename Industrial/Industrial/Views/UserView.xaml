@@ -48,12 +48,12 @@ The author takes no liabilities for any damage caused because of this code. Use 
         <ContentPresenter Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" Width="150" 
                           Content="{Binding ElementName=txtName,Path=(Validation.Errors).CurrentItem}" />
 
-        <!--Username of the user-->
-        <TextBlock Grid.Row="3" Grid.Column="0" Margin="5" Text="{x:Static Shared:UIText.USERNAME_LABEL_TEXT}"/>
-        <TextBox x:Name="txtUsername"  Grid.Row="3" Grid.Column="1" Width="200" Margin="5,5,5,0" Validation.ErrorTemplate="{x:Null}" 
-                 Text="{Binding Username,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" IsReadOnly="{Binding IsUsernameEditable,Mode=OneWay,Converter={StaticResource invBoolCnv}}"/>
+        <!--UserName of the user-->
+        <TextBlock Grid.Row="3" Grid.Column="0" Margin="5" Text="{x:Static Shared:UIText.UserName_LABEL_TEXT}"/>
+        <TextBox x:Name="txtUserName"  Grid.Row="3" Grid.Column="1" Width="200" Margin="5,5,5,0" Validation.ErrorTemplate="{x:Null}" 
+                 Text="{Binding UserName,UpdateSourceTrigger=PropertyChanged,ValidatesOnDataErrors=True}" IsReadOnly="{Binding IsUserNameEditable,Mode=OneWay,Converter={StaticResource invBoolCnv}}"/>
         <ContentPresenter Grid.Row="4" Grid.Column="1" HorizontalAlignment="Right" Width="150" 
-                          Content="{Binding ElementName=txtUsername,Path=(Validation.Errors).CurrentItem}" />
+                          Content="{Binding ElementName=txtUserName,Path=(Validation.Errors).CurrentItem}" />
 
     </Controls:ApexGrid>
 </UserControl>

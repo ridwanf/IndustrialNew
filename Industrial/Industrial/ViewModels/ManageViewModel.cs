@@ -14,7 +14,7 @@ using Industrial.Infrastructure.CoreClasses;
 using Industrial.Infrastructure.MessagingService;
 using Industrial.Infrastructure.Utility;
 using Industrial.Models.EventArgsAndException;
-using Industrial.Models.Interfaces;
+
 using Industrial.Repository.Repositories;
 using Industrial.Shared;
 
@@ -87,7 +87,7 @@ namespace Industrial.ViewModels
         /// <param name="userRepository"></param>
         /// <param name="messagingService"></param>
         /// <param name="canUserNavigate"></param>
-        public ManageViewModel(string registeredName, Models.Interfaces.IUserRepository userRepository, IMessagingService messagingService,bool canUserNavigate)
+        public ManageViewModel(string registeredName, IUserRepository userRepository, IMessagingService messagingService,bool canUserNavigate)
             : base(registeredName,canUserNavigate)
         {
             if (userRepository == null)
@@ -194,7 +194,7 @@ namespace Industrial.ViewModels
             SelectedUser = null;
             Users.Clear();
             _messagingService.ShowProgressMessage(UIText.WAIT_SCREEN_HEADER, UIText.GETTING_USERS_WAIT_MSG);
-            _userRepository.GetAllUsers();
+            _userRepository.FindAll();
         }
 
         /// <summary>
@@ -204,18 +204,18 @@ namespace Industrial.ViewModels
         {
             try
             {
-                LogUtil.LogInfo("ManageViewModel", "SaveUser", "Checking for username");
-                //Check if the username exists.
-               // if (SelectedUser.Entity.UserId<1 && _userRepository.CheckIfUserNameExists(SelectedUser.Username))
+                LogUtil.LogInfo("ManageViewModel", "SaveUser", "Checking for UserName");
+                //Check if the UserName exists.
+               // if (SelectedUser.Entity.UserId<1 && _userRepository.CheckIfUserNameExists(SelectedUser.UserName))
                 //{
-                //    LogUtil.LogInfo("ManageViewModel", "SaveUser", "Checking for username failed.");
-                //    _messagingService.ShowMessage(InfoMessages.INF_USERNAME_DUP_MSG);
+                //    LogUtil.LogInfo("ManageViewModel", "SaveUser", "Checking for UserName failed.");
+                //    _messagingService.ShowMessage(InfoMessages.INF_UserName_DUP_MSG);
                 //    return;
                 //}
                 //Save the user.
                 _messagingService.ShowProgressMessage(UIText.WAIT_SCREEN_HEADER, UIText.SAVING_USER_WAIT_MSG);
              //   _userRepository.SaveUserAsync(SelectedUser.Entity);
-                LogUtil.LogInfo("ManageViewModel", "SaveUser", string.Format("Saved user successfully: {0}.", SelectedUser.Username));
+                LogUtil.LogInfo("ManageViewModel", "SaveUser", string.Format("Saved user successfully: {0}.", SelectedUser.UserName));
             }
             catch (Exception ex)
             {

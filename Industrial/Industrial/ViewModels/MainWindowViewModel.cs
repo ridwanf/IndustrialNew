@@ -10,6 +10,8 @@ using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Industrial.Model;
+using Industrial.Model.EventArgsAndException;
+using Industrial.Repository.Repositories;
 using Industrial.Shared;
 using Industrial.Models;
 using Industrial.Models.EventArgsAndException;

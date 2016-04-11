@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using Industrial.Models.DataModels;
+using Industrial.Data.Domain;
 using Industrial.Models.EventArgsAndException;
 
 namespace Industrial.Models.Interfaces
 {
     /// <summary>
     /// A contract exposing all members essential for maintaining a repository of 
-    /// <see cref="Transaction"/> instances.
+    /// <see cref="DataModels.Transaction"/> instances.
     /// </summary>
     public interface IUserRepository
     {

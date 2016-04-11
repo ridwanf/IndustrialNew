@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Industrial.Repository, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Industrial.Service\bin\Debug\Industrial.Repository.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -37,6 +41,7 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
@@ -49,8 +54,12 @@
     <Compile Include="Repositories\IRoleRepository.cs" />
     <Compile Include="Repositories\ISupplierRepository.cs" />
     <Compile Include="Repositories\ItemProductRepository.cs" />
+    <Compile Include="Repositories\ITransactionRepository.cs" />
     <Compile Include="Repositories\IUnitOfMeasureRepository.cs" />
+    <Compile Include="Repositories\IUserRepository.cs" />
+    <Compile Include="Repositories\RepositoryFactory.cs" />
     <Compile Include="Repositories\SupplierRepository.cs" />
+    <Compile Include="Repositories\TransactionRepository.cs" />
     <Compile Include="Repositories\UnitOfMeasureRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -66,9 +75,9 @@
       <Project>{A963F646-76B4-40EC-8E4F-E8EACC256FA8}</Project>
       <Name>Industrial.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Industrial.Model\Industrial.Model.csproj">
-      <Project>{D1CFC8C5-565C-42F3-A96E-7A503CC9BB5C}</Project>
-      <Name>Industrial.Model</Name>
+    <ProjectReference Include="..\Industrial.Shared\Industrial.Shared.csproj">
+      <Project>{2C752B91-ECA4-4E98-B5F9-63B1690EBE4F}</Project>
+      <Name>Industrial.Shared</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,9 +1,8 @@
-﻿
-using Industrial.Infrastructure.BaseClasses;
+﻿using Industrial.Infrastructure.BaseClasses;
 using Industrial.Infrastructure.Utility;
 using Industrial.Shared;
 
-namespace Industrial.Models.DataModels
+namespace Industrial.Model.DataModels
 {
     /// <summary>
     /// A model class for user.

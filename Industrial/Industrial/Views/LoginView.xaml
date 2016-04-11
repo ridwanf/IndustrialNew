@@ -29,8 +29,8 @@ The author takes no liabilities for any damage caused because of this code. Use 
         <Border Grid.Row="1" Grid.ColumnSpan="3" Background="{DynamicResource HighlightBrush}">
             <apex:ApexGrid Rows="Auto,Auto,Auto,Auto" Columns="Auto,Auto" HorizontalAlignment="Center">
                 <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="22" Text="{x:Static Shared:UIText.LOGIN_SCREEN_HEADER}" />
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static Shared:UIText.USERNAME_LABEL_TEXT}" />
-                <TextBox Grid.Row="1" Grid.Column="1" Margin="5" Text="{Binding Username}" FontSize="14" Width="200"/>
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static Shared:UIText.UserName_LABEL_TEXT}" />
+                <TextBox Grid.Row="1" Grid.Column="1" Margin="5" Text="{Binding UserName}" FontSize="14" Width="200"/>
 
                 <TextBlock Grid.Row="2" Grid.Column="0" Text="{x:Static Shared:UIText.PASSWORD_LABEL_TEXT}" />
                 <PasswordBox Grid.Row="2" Grid.Column="1" Margin="5"  Width="200" 

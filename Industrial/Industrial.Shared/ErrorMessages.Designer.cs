@@ -97,7 +97,7 @@ namespace Industrial.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Username or password did not match please try again..
+        ///   Looks up a localized string similar to UserName or password did not match please try again..
         /// </summary>
         public static string ERR_FAILED_LOGIN_MESSAGE {
             get {
@@ -232,20 +232,20 @@ namespace Industrial.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Username is empty..
+        ///   Looks up a localized string similar to UserName is empty..
         /// </summary>
-        public static string ERR_USERNAME_CANNOT_BE_EMPTY {
+        public static string ERR_UserName_CANNOT_BE_EMPTY {
             get {
-                return ResourceManager.GetString("ERR_USERNAME_CANNOT_BE_EMPTY", resourceCulture);
+                return ResourceManager.GetString("ERR_UserName_CANNOT_BE_EMPTY", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Max length is 10..
         /// </summary>
-        public static string ERR_USERNAME_CANNOT_BE_LONG {
+        public static string ERR_UserName_CANNOT_BE_LONG {
             get {
-                return ResourceManager.GetString("ERR_USERNAME_CANNOT_BE_LONG", resourceCulture);
+                return ResourceManager.GetString("ERR_UserName_CANNOT_BE_LONG", resourceCulture);
             }
         }
     }

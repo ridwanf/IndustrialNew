@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Industrial.Models.DataModels;
+using Industrial.Data.Domain;
 using Industrial.Models.EventArgsAndException;
 
 namespace Industrial.Repository.Repositories
@@ -84,6 +84,4 @@ namespace Industrial.Repository.Repositories
         /// <returns></returns>
         Transaction GetNewTransaction();
     }
-
-    
 }

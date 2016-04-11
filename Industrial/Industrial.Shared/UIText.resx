@@ -336,8 +336,8 @@
   <data name="TRANS_PURPOSE_TYPE_LABEL_TXT" xml:space="preserve">
     <value>Purpose:</value>
   </data>
-  <data name="USERNAME_LABEL_TEXT" xml:space="preserve">
-    <value>Username :</value>
+  <data name="UserName_LABEL_TEXT" xml:space="preserve">
+    <value>UserName :</value>
   </data>
   <data name="USER_LABEL_TEXT" xml:space="preserve">
     <value>User</value>

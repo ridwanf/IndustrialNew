@@ -6,7 +6,8 @@
  * The author takes no liabilities for any damage caused because of this code. Use at your own risk.
 ****************************************************************************************************/
 
-using Industrial.Models.DataModels;
+
+using Industrial.Data.Domain;
 
 namespace Industrial.ViewModels
 {

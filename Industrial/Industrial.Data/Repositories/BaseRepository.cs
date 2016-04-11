@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
 using Core;
 
 namespace Industrial.Data.Repositories
@@ -96,6 +97,17 @@ namespace Industrial.Data.Repositories
         {
             DataContextFactory.GetDataContext().Entry(entity).State = EntityState.Modified;
             return entity;
+        }
+
+        /// <summary>
+        /// A private helper method that queues a method to a thread pool thread.
+        /// </summary>
+        /// <param name="method">The method that needs to be queued.</param>
+        protected void QueueAsyncTask(Action method)
+        {
+            if (method == null)
+                throw new ArgumentNullException("method");
+            ThreadPool.QueueUserWorkItem((o) => method());
         }
     }
 }

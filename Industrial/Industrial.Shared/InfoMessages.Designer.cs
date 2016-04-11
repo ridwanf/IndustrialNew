@@ -88,11 +88,11 @@ namespace Industrial.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The username already exists.
+        ///   Looks up a localized string similar to The UserName already exists.
         /// </summary>
-        public static string INF_USERNAME_DUP_MSG {
+        public static string INF_UserName_DUP_MSG {
             get {
-                return ResourceManager.GetString("INF_USERNAME_DUP_MSG", resourceCulture);
+                return ResourceManager.GetString("INF_UserName_DUP_MSG", resourceCulture);
             }
         }
     }

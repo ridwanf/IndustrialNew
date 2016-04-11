@@ -126,7 +126,7 @@
   <data name="INF_PASSWORD_CHANGED_MSG" xml:space="preserve">
     <value>Password changed successfully.</value>
   </data>
-  <data name="INF_USERNAME_DUP_MSG" xml:space="preserve">
-    <value>The username already exists</value>
+  <data name="INF_UserName_DUP_MSG" xml:space="preserve">
+    <value>The UserName already exists</value>
   </data>
 </root>

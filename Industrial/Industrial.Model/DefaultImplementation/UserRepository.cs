@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using Industrial.Data.Domain;
 using Industrial.Infrastructure.Utility;
-using Industrial.Models.DataModels;
 using Industrial.Models.DefaultImplementation;
 using Industrial.Models.EventArgsAndException;
 using Industrial.Models.Interfaces;
@@ -100,7 +100,7 @@ namespace Industrial.Model.DefaultImplementation
                     SaveUser(user);
                     LogUtil.LogInfo("UserRepository",
                                     "IUserRepository.SaveUser",
-                                    string.Format("Successfully saved the user{0}.", user.UserId));
+                                    string.Format("Successfully saved the user{0}.", user.Id));
                 }
                 catch (Exception ex)
                 {
@@ -136,7 +136,7 @@ namespace Industrial.Model.DefaultImplementation
         {
             return new User()
                        {
-                           Role = UserRole.Normal,
+                           //Roles =UserRole.Normal,
                            SelectedAccent = AppearanceManager.GetApplicationAccent(),
                            SelectedTheme = AppearanceManager.GetApplicationTheme(),
                            Password = "XPense123"

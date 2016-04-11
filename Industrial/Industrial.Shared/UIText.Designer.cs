@@ -736,11 +736,11 @@ namespace Industrial.Shared {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Username :.
+        ///   Looks up a localized string similar to UserName :.
         /// </summary>
-        public static string USERNAME_LABEL_TEXT {
+        public static string UserName_LABEL_TEXT {
             get {
-                return ResourceManager.GetString("USERNAME_LABEL_TEXT", resourceCulture);
+                return ResourceManager.GetString("UserName_LABEL_TEXT", resourceCulture);
             }
         }
         

@@ -127,7 +127,7 @@
     <value>Max 255 chars permitted.</value>
   </data>
   <data name="ERR_FAILED_LOGIN_MESSAGE" xml:space="preserve">
-    <value>Username or password did not match please try again.</value>
+    <value>UserName or password did not match please try again.</value>
   </data>
   <data name="ERR_FAILED_TO_DELETE_TRANS" xml:space="preserve">
     <value>Failed to delete the transactions.</value>
@@ -171,10 +171,10 @@
   <data name="ERR_PASSWOR_NO_MATCH_MSG" xml:space="preserve">
     <value>The existing password entered is incorrect.</value>
   </data>
-  <data name="ERR_USERNAME_CANNOT_BE_EMPTY" xml:space="preserve">
-    <value>Username is empty.</value>
+  <data name="ERR_UserName_CANNOT_BE_EMPTY" xml:space="preserve">
+    <value>UserName is empty.</value>
   </data>
-  <data name="ERR_USERNAME_CANNOT_BE_LONG" xml:space="preserve">
+  <data name="ERR_UserName_CANNOT_BE_LONG" xml:space="preserve">
     <value>Max length is 10.</value>
   </data>
   <data name="ER_INVALID_AMOUNT" xml:space="preserve">

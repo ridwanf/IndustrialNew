@@ -8,7 +8,7 @@
 
 using System;
 using System.Windows.Input;
-using Industrial.Models.DataModels;
+using Industrial.Data.Domain;
 using Industrial.Infrastructure.BaseClasses;
 using System.Linq;
 using Industrial.Shared;
@@ -121,7 +121,7 @@ namespace Industrial.ViewModels
         }
 
         /// <summary>
-        /// Gets the username of the user who created the transaction.
+        /// Gets the UserName of the user who created the transaction.
         /// </summary>
         public string CreatedBy
         {
@@ -129,7 +129,7 @@ namespace Industrial.ViewModels
         }
 
         /// <summary>
-        /// Gets the username of the user who last modified the transaction.
+        /// Gets the UserName of the user who last modified the transaction.
         /// </summary>
         public string LastModifiedBy
         {

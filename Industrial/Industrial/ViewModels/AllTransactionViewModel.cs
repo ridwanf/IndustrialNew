@@ -10,12 +10,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Input;
+using Industrial.Data.Domain;
 using Industrial.Infrastructure.BaseClasses;
 using Industrial.Infrastructure.CoreClasses;
 using Industrial.Infrastructure.MessagingService;
-using Industrial.Models.DataModels;
+
 using Industrial.Models.EventArgsAndException;
-using Industrial.Models.Interfaces;
+
 using Industrial.Repository.Repositories;
 using Industrial.Shared;
 
@@ -210,7 +211,7 @@ namespace Industrial.ViewModels
         /// <param name="userRepository"> </param>
         /// <param name="transactionRepository">An instance of transaction repository contract.</param>
         /// <param name="messagingService">An implementation of <see cref="IMessagingService"/>. </param>
-        public AllTransactionViewModel(bool isUserAdmin, string registeredName, Models.Interfaces.IUserRepository userRepository, Models.Interfaces.ITransactionRepository transactionRepository, IMessagingService messagingService)
+        public AllTransactionViewModel(bool isUserAdmin, string registeredName, IUserRepository userRepository, ITransactionRepository transactionRepository, IMessagingService messagingService)
             : base(registeredName)
         {
             if (userRepository == null)
@@ -420,15 +421,15 @@ namespace Industrial.ViewModels
                     toAmountFilterDisplay = Convert.ToString(amount);
                 }
             }
-            transactionFilter.Username = FilterViewModel.Username;
+            transactionFilter.UserName = FilterViewModel.UserName;
             if (!IsUserAdmin)//Override selected user name if user is not admin
-                transactionFilter.Username = AppData.LoggedInUser.Username;
+                transactionFilter.UserName = AppData.LoggedInUser.UserName;
             //Update properties for the filter visual
             TotalIncome = 0;
             TotalExpenditure = 0;
             FilterDisplayOnDates = dateDisplayFilter;
             FilterDisplayOnAmount = string.Format("{0} - {1}", fromAmountFilterDisplay, toAmountFilterDisplay);
-            FilterDisplayOnUser = FilterViewModel.Username ?? "N.A.";
+            FilterDisplayOnUser = FilterViewModel.UserName ?? "N.A.";
             _transactionRepository.GetTransactionsAsync(transactionFilter);
         }
 
@@ -466,8 +467,8 @@ namespace Industrial.ViewModels
         {
             _messagingService.ShowProgressMessage(UIText.WAIT_SCREEN_HEADER, UIText.SAVING_TRANS_WAIT_MSG);
             if (SelectedTransaction.Entity.TransactionId < 1)
-                SelectedTransaction.Entity.CreatedBy = AppData.LoggedInUser.Username;
-            SelectedTransaction.Entity.LastModifiedBy = AppData.LoggedInUser.Username;
+                SelectedTransaction.Entity.CreatedBy = AppData.LoggedInUser.UserName;
+            SelectedTransaction.Entity.LastModifiedBy = AppData.LoggedInUser.UserName;
             _transactionRepository.SaveTransactionAsync(SelectedTransaction.Entity);
         }
 

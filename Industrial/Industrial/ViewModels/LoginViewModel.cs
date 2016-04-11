@@ -12,8 +12,9 @@ using Industrial.Infrastructure.BaseClasses;
 using Industrial.Infrastructure.CoreClasses;
 using Industrial.Infrastructure.MessagingService;
 using Industrial.Infrastructure.Utility;
+using Industrial.Model.EventArgsAndException;
 using Industrial.Models.EventArgsAndException;
-using Industrial.Models.Interfaces;
+using Industrial.Repository.Repositories;
 using Industrial.Shared;
 
 namespace Industrial.ViewModels
@@ -29,17 +30,17 @@ namespace Industrial.ViewModels
         #region Public Members
 
         /// <summary>
-        /// Gets or sets the username of the user.
+        /// Gets or sets the UserName of the user.
         /// </summary>
-        public string Username
+        public string UserName
         {
-            get { return _userName; }
+            get { return _UserName; }
             set
             {
-                if (_userName == value)
+                if (_UserName == value)
                     return;
-                _userName = value;
-                OnPropertyChanged(GetPropertyName(() => Username));
+                _UserName = value;
+                OnPropertyChanged(GetPropertyName(() => UserName));
             }
         }
 
@@ -112,7 +113,7 @@ namespace Industrial.ViewModels
         {
             try
             {
-                var user = _userRepository.ValidateLoginAttempt(Username, Password);
+                var user = _userRepository.ValidateLoginAttempt(UserName, Password);
                 if (user != null)
                 {
                     if (_userLoggedIn != null)
@@ -122,7 +123,7 @@ namespace Industrial.ViewModels
                 }
                 else
                 {
-                    LogUtil.LogInfo("LoginViewModel", "TryLoginIn", string.Format("Failed login attempted for  username: {0}.", Username));
+                    LogUtil.LogInfo("LoginViewModel", "TryLoginIn", string.Format("Failed login attempted for  UserName: {0}.", UserName));
                     _messagingService.ShowMessage(ErrorMessages.ERR_FAILED_LOGIN_MESSAGE);
                 }
             }
@@ -139,14 +140,14 @@ namespace Industrial.ViewModels
         /// <returns></returns>
         private bool CanTryLogin()
         {
-            return !string.IsNullOrEmpty(Username) && !string.IsNullOrEmpty(Password);
+            return !string.IsNullOrEmpty(UserName) && !string.IsNullOrEmpty(Password);
         }
 
         #endregion
 
         #region Members Variables
 
-        private string _userName;
+        private string _UserName;
         private string _password;
         private event EventHandler<UserLoggedInEventArgs> _userLoggedIn;
 
